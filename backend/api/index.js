@@ -35,12 +35,13 @@ app.set('trust proxy', 1)
 
 app.use(express.json({ limit: '4mb' }))
 app.use(helmet())
-app.options('*', cors()) // include before other routes
+// app.options('*', cors())  include before other routes
 
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'http://localhost:4100'], // Add both origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add the necessary methods
+    origin: ['http://localhost:3000', 'http://localhost:4100'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Allow credentials
   })
 )
 
