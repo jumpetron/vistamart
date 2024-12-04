@@ -1,19 +1,19 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 //internal import
-import useGetSetting from "@hooks/useGetSetting";
-import CMSkeleton from "@components/preloader/CMSkeleton";
-import useUtilsFunction from "@hooks/useUtilsFunction";
+import useGetSetting from '@hooks/useGetSetting'
+import CMSkeleton from '@components/preloader/CMSkeleton'
+import useUtilsFunction from '@hooks/useUtilsFunction'
 
 const CardTwo = () => {
-  const { storeCustomizationSetting, error, loading } = useGetSetting();
-  const { showingTranslateValue } = useUtilsFunction();
+  const { storeCustomizationSetting, error, loading } = useGetSetting()
+  const { showingTranslateValue } = useUtilsFunction()
 
   return (
     <>
-      <div className="w-full bg-white shadow-sm lg:px-10 lg:py-5 p-6 rounded-lg">
+      {/* <div className="w-full bg-white shadow-sm lg:px-10 lg:py-5 p-6 rounded-lg">
         <div className="flex justify-between items-center">
           <div className="lg:w-3/5">
             <span className="text-base lg:text-lg">
@@ -68,9 +68,9 @@ const CardTwo = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
-  );
-};
+  )
+}
 
-export default CardTwo;
+export default CardTwo

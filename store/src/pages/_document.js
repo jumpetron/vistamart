@@ -1,52 +1,40 @@
-import SettingServices from "@services/SettingServices";
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import SettingServices from '@services/SettingServices'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
+    const initialProps = await Document.getInitialProps(ctx)
 
     // Fetch general metadata from backend API
-    const setting = await SettingServices.getStoreSeoSetting();
 
-    return { ...initialProps, setting };
+    return { ...initialProps }
   }
 
   render() {
-    const setting = this.props.setting;
     return (
       <Html lang="en">
         <Head>
-          <link rel="icon" href={'https://vaporvibe.com.bd/wp-content/uploads/2023/12/Fab.png'} />
-          <meta
-            property="og:title"
-            content={
-              setting?.meta_title ||
-              "vaporvibe"
-            }
+          <link
+            rel="icon"
+            href={'https://staging-frontend.cleversity.com/logo-color.png'}
           />
+          <meta property="og:title" content={'vistamart'} />
           <meta property="og:type" content="eCommerce Website" />
-          <meta
-            property="og:description"
-            content={
-              setting?.meta_description
-            }
-          />
+          <meta property="og:description" content={'vistamart online store'} />
           <meta
             name="keywords"
-            content={setting?.meta_keywords || "ecommenrce online store"}
+            content={'vistamart online store' || 'ecommenrce online store'}
           />
           <meta
             property="og:url"
             content={
-              setting?.meta_url || "https://vaporvibe-store.vercel.app/"
+              'https://vistamart.vercel.app' ||
+              'https://vaporvibe-store.vercel.app/'
             }
           />
           <meta
             property="og:image"
-            content={
-              setting?.meta_img ||
-              "https://res.cloudinary.com/ahossain/image/upload/v1636729752/facebook-page_j7alju.png"
-            }
+            content={'https://staging-frontend.cleversity.com/logo-color.png'}
           />
         </Head>
         <body>
@@ -54,8 +42,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument

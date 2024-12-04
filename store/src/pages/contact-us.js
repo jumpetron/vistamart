@@ -64,12 +64,10 @@ const ContactUs = () => {
                 </h5>
                 <p className="mb-0 text-base opacity-90 leading-7">
                   <a
-                    href={`mailto:${storeCustomizationSetting?.contact_us?.email_box_email}`}
+                    href={`mailto:info@vistamart.com`}
                     className="text-emerald-500"
                   >
-                    {showingTranslateValue(
-                      storeCustomizationSetting?.contact_us?.email_box_email
-                    )}
+                  info@vistamart.com
                   </a>{" "}
                   {showingTranslateValue(
                     storeCustomizationSetting?.contact_us?.email_box_text

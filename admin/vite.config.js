@@ -20,7 +20,7 @@ export default defineConfig({
     rollupOptions: {
       // Additional Rollup configuration options if needed
     },
-    chunkSizeWarningLimit: 10 * 1024
+    chunkSizeWarningLimit: 10 * 1024,
   },
   plugins: [
     react(),
@@ -33,11 +33,11 @@ export default defineConfig({
         enabled: false,
         /* when using generateSW the PWA plugin will switch to classic */
         type: 'module',
-        navigateFallback: 'index.html'
+        navigateFallback: 'index.html',
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       },
 
       // add this to cache all the
@@ -48,7 +48,7 @@ export default defineConfig({
         'src/assets/img/*.png',
         'src/assets/img/*.jepg',
         'src/assets/img/*.webp',
-        'favicon.ico'
+        'favicon.ico',
       ],
       manifest: {
         theme_color: '#FFFFFF',
@@ -66,57 +66,57 @@ export default defineConfig({
           {
             src: 'favicon.ico',
             sizes: '48x48',
-            type: 'image/x-icon'
+            type: 'image/x-icon',
           },
           {
             src: '/icon-192x192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'maskable'
+            purpose: 'maskable',
           },
           {
             src: '/icon-256x256.png',
             sizes: '256x256',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/icon-384x384.png',
             sizes: '384x384',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: '/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
+            type: 'image/png',
+          },
+        ],
+      },
     }),
-    compression()
+    compression(),
   ],
 
   server: {
     proxy: {
       '/api/': {
-        target: 'http://localhost:5065',
-        changeOrigin: true
-      }
-    }
+        target: 'http://localhost:5055/api',
+        changeOrigin: true,
+      },
+    },
   },
   define: {
-    'process.env': process.env
+    'process.env': process.env,
     // global: {}, //enable this when running on dev/local mode
   },
 
   resolve: {
     alias: {
       // eslint-disable-next-line no-undef
-      '@': path.resolve(__dirname, './src/')
-    }
+      '@': path.resolve(__dirname, './src/'),
+    },
   },
   test: {
     global: true,
     environment: 'jsdom',
-    setupFiles: ['./src/setupTest.js']
-  }
+    setupFiles: ['./src/setupTest.js'],
+  },
 })

@@ -15,26 +15,26 @@ const Layout = ({ title, description, children }) => {
     <>
       <ToastContainer />
 
-      <div className='font-sans'>
+      <div className="font-sans">
         <Head>
           <title>VistaMart</title>
-          {description && <meta name='description' content={description} />}
+          {description && <meta name="description" content={description} />}
           <link
-            ref='icon'
-            href='https://vaporvibe.com.bd/wp-content/uploads/2023/12/Fab.png'
+            ref="icon"
+            href="https://staging-frontend.cleversity.com/logo-color.png"
           />
         </Head>
         <NavBarTop />
         <Navbar />
-        <div className='bg-gray-50'>{children}</div>
+        <div className="bg-gray-50">{children}</div>
         <MobileFooter />
-        <div className='w-full'>
+        <div className="w-full">
           <FooterTop />
-          <div className='hidden relative lg:block mx-auto max-w-screen-2xl py-6 px-3 sm:px-10'>
+          <div className="hidden relative lg:block mx-auto max-w-screen-2xl py-6 px-3 sm:px-10">
             <FeatureCard />
           </div>
-          <hr className='hr-line'></hr>
-          <div className='border-t border-gray-100 w-full'>
+          <hr className="hr-line"></hr>
+          <div className="border-t border-gray-100 w-full">
             <Footer />
           </div>
         </div>

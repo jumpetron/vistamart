@@ -1,17 +1,17 @@
-import React from "react";
-import Image from "next/image";
-import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/solid";
+import React from 'react'
+import Image from 'next/image'
+import { Disclosure } from '@headlessui/react'
+import { ChevronUpIcon } from '@heroicons/react/solid'
 
 //internal import
-import Layout from "@layout/Layout";
-import useGetSetting from "@hooks/useGetSetting";
-import PageHeader from "@components/header/PageHeader";
-import useUtilsFunction from "@hooks/useUtilsFunction";
+import Layout from '@layout/Layout'
+import useGetSetting from '@hooks/useGetSetting'
+import PageHeader from '@components/header/PageHeader'
+import useUtilsFunction from '@hooks/useUtilsFunction'
 
 const Faq = () => {
-  const { storeCustomizationSetting } = useGetSetting();
-  const { showingTranslateValue } = useUtilsFunction();
+  const { storeCustomizationSetting } = useGetSetting()
+  const { showingTranslateValue } = useUtilsFunction()
 
   return (
     <Layout title="FAQ" description="This is faq page">
@@ -26,7 +26,7 @@ const Faq = () => {
               <Image
                 width={720}
                 height={550}
-                src={storeCustomizationSetting?.faq?.left_img || "/faq.svg"}
+                src={storeCustomizationSetting?.faq?.left_img || '/faq.svg'}
                 alt="logo"
               />
             </div>
@@ -35,14 +35,10 @@ const Faq = () => {
                 {({ open }) => (
                   <>
                     <Disclosure.Button className="flex justify-between w-full px-4 py-3 text-base font-medium text-left text-gray-600 focus:text-emerald-500 bg-gray-50 hover:bg-emerald-50 rounded-lg focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                      <span>
-                        {showingTranslateValue(
-                          storeCustomizationSetting?.faq?.faq_one
-                        )}
-                      </span>
+                      <span>How does the vistamart work?</span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -60,14 +56,14 @@ const Faq = () => {
                   <>
                     <Disclosure.Button className="flex justify-between w-full px-4 py-3 text-base font-medium text-left text-gray-600 focus:text-emerald-500 bg-gray-50 hover:bg-emerald-50 rounded-lg focus:outline-none">
                       <span>
-                        {" "}
+                        {' '}
                         {showingTranslateValue(
                           storeCustomizationSetting?.faq?.faq_two
                         )}
                       </span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -85,14 +81,14 @@ const Faq = () => {
                   <>
                     <Disclosure.Button className="flex justify-between w-full px-4 py-3 text-base font-medium text-left text-gray-600 focus:text-emerald-500 bg-gray-50 hover:bg-emerald-50 rounded-lg focus:outline-none">
                       <span>
-                        {" "}
+                        {' '}
                         {showingTranslateValue(
                           storeCustomizationSetting?.faq?.faq_three
                         )}
                       </span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -109,14 +105,14 @@ const Faq = () => {
                   <>
                     <Disclosure.Button className="flex justify-between w-full px-4 py-3 text-base font-medium text-left text-gray-600 focus:text-emerald-500 bg-gray-50 hover:bg-emerald-50 rounded-lg focus:outline-none">
                       <span>
-                        {" "}
+                        {' '}
                         {showingTranslateValue(
                           storeCustomizationSetting?.faq?.faq_four
                         )}
                       </span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -139,7 +135,7 @@ const Faq = () => {
                       </span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -156,13 +152,11 @@ const Faq = () => {
                   <>
                     <Disclosure.Button className="flex justify-between w-full px-4 py-3 text-base font-medium text-left text-gray-600 focus:text-emerald-500 bg-gray-50 hover:bg-emerald-50 rounded-lg focus:outline-none">
                       <span>
-                        {showingTranslateValue(
-                          storeCustomizationSetting?.faq?.faq_six
-                        )}
+                        What are the benefits of using vistamart affliate?
                       </span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -179,14 +173,14 @@ const Faq = () => {
                   <>
                     <Disclosure.Button className="flex justify-between w-full px-4 py-3 text-base font-medium text-left text-gray-600 focus:text-emerald-500 bg-gray-50 hover:bg-emerald-50 rounded-lg focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                       <span>
-                        {" "}
+                        {' '}
                         {showingTranslateValue(
                           storeCustomizationSetting?.faq?.faq_seven
                         )}
                       </span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -210,7 +204,7 @@ const Faq = () => {
                       </span>
                       <ChevronUpIcon
                         className={`${
-                          open ? "transform rotate-180 text-emerald-500" : ""
+                          open ? 'transform rotate-180 text-emerald-500' : ''
                         } w-5 h-5 text-gray-500`}
                       />
                     </Disclosure.Button>
@@ -227,7 +221,7 @@ const Faq = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default Faq;
+export default Faq

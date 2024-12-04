@@ -1,16 +1,16 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image'
 
 //internal import
-import Layout from "@layout/Layout";
-import useGetSetting from "@hooks/useGetSetting";
-import PageHeader from "@components/header/PageHeader";
-import CMSkeleton from "@components/preloader/CMSkeleton";
-import useUtilsFunction from "@hooks/useUtilsFunction";
+import Layout from '@layout/Layout'
+import useGetSetting from '@hooks/useGetSetting'
+import PageHeader from '@components/header/PageHeader'
+import CMSkeleton from '@components/preloader/CMSkeleton'
+import useUtilsFunction from '@hooks/useUtilsFunction'
 
 const AboutUs = () => {
-  const { storeCustomizationSetting, loading, error } = useGetSetting();
-  const { showingTranslateValue } = useUtilsFunction();
+  const { storeCustomizationSetting, loading, error } = useGetSetting()
+  const { showingTranslateValue } = useUtilsFunction()
 
   // console.log("data", data, );
 
@@ -18,9 +18,7 @@ const AboutUs = () => {
     <Layout title="About Us" description="This is about us page">
       <PageHeader
         headerBg={storeCustomizationSetting?.about_us?.header_bg}
-        title={showingTranslateValue(
-          storeCustomizationSetting?.about_us?.title
-        )}
+        title={'About Us'}
       />
 
       <div className="bg-white">
@@ -29,14 +27,7 @@ const AboutUs = () => {
             <div className="">
               <h3 className="text-xl lg:text-3xl mb-2 font-serif font-semibold">
                 {/* {t("common:about-section-title")} */}
-
-                <CMSkeleton
-                  count={1}
-                  height={50}
-                  // error={error}
-                  loading={loading}
-                  data={storeCustomizationSetting?.about_us?.top_title}
-                />
+                Welcome to our vistamart
               </h3>
               <div className="mt-3 text-base opacity-90 leading-7">
                 <p>
@@ -61,9 +52,7 @@ const AboutUs = () => {
                   ) : (
                     <>
                       <span className="text-3xl block font-extrabold font-serif mb-4 text-gray-800">
-                        {showingTranslateValue(
-                          storeCustomizationSetting?.about_us?.card_two_title
-                        )}
+                        Welcome to vistamart
                       </span>
                       <h4 className="text-lg font-serif font-bold mb-1">
                         {showingTranslateValue(
@@ -117,7 +106,7 @@ const AboutUs = () => {
                 height={750}
                 src={
                   storeCustomizationSetting?.about_us?.content_right_img ||
-                  "/about-us.jpg"
+                  '/about-us.jpg'
                 }
                 alt="logo"
               />
@@ -154,14 +143,14 @@ const AboutUs = () => {
               height={570}
               src={
                 storeCustomizationSetting?.about_us?.content_middle_Img ||
-                "/about-banner.jpg"
+                '/about-banner.jpg'
               }
               alt="logo"
               className="block rounded-lg"
             />
           </div>
         </div>
-        <div className="bg-gray-50 lg:py-20 py-10">
+        {/* <div className="bg-gray-50 lg:py-20 py-10">
           <div className="max-w-screen-2xl mx-auto px-3 sm:px-10">
             <div className="relative flex flex-col sm:flex-row sm:items-end justify-between mb-8">
               <div className="max-w-2xl">
@@ -194,7 +183,7 @@ const AboutUs = () => {
                   height={420}
                   src={
                     storeCustomizationSetting?.about_us?.founder_one_img ||
-                    "/team/team-1.jpg"
+                    '/team/team-1.jpg'
                   }
                   alt="team-1"
                   className="block rounded-lg"
@@ -218,7 +207,7 @@ const AboutUs = () => {
                   height={420}
                   src={
                     storeCustomizationSetting?.about_us?.founder_two_img ||
-                    "/team/team-2.jpg"
+                    '/team/team-2.jpg'
                   }
                   alt="team-2"
                   className="block rounded-lg"
@@ -242,7 +231,7 @@ const AboutUs = () => {
                   height={420}
                   src={
                     storeCustomizationSetting?.about_us?.founder_three_img ||
-                    "/team/team-3.jpg"
+                    '/team/team-3.jpg'
                   }
                   alt="team-3"
                   className="block rounded-lg"
@@ -266,7 +255,7 @@ const AboutUs = () => {
                   height={420}
                   src={
                     storeCustomizationSetting?.about_us?.founder_four_img ||
-                    "/team/team-4.jpg"
+                    '/team/team-4.jpg'
                   }
                   alt="team-4"
                   className="block rounded-lg"
@@ -290,7 +279,7 @@ const AboutUs = () => {
                   height={420}
                   src={
                     storeCustomizationSetting?.about_us?.founder_five_img ||
-                    "/team/team-5.jpg"
+                    '/team/team-5.jpg'
                   }
                   alt="team-5"
                   className="block rounded-lg"
@@ -314,7 +303,7 @@ const AboutUs = () => {
                   height={420}
                   src={
                     storeCustomizationSetting?.about_us?.founder_six_img ||
-                    "/team/team-6.jpg"
+                    '/team/team-6.jpg'
                   }
                   alt="team-6"
                   className="block rounded-lg"
@@ -334,10 +323,10 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default AboutUs;
+export default AboutUs

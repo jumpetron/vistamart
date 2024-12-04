@@ -1,20 +1,18 @@
-import React from "react";
-import { FiCreditCard, FiGift, FiPhoneCall, FiTruck } from "react-icons/fi";
+import React from 'react'
+import { FiCreditCard, FiGift, FiPhoneCall, FiTruck } from 'react-icons/fi'
 
 //internal import
-import useGetSetting from "@hooks/useGetSetting";
-import useUtilsFunction from "@hooks/useUtilsFunction";
+import useGetSetting from '@hooks/useGetSetting'
+import useUtilsFunction from '@hooks/useUtilsFunction'
 
 const FeatureCard = () => {
-  const { storeCustomizationSetting } = useGetSetting();
-  const { showingTranslateValue } = useUtilsFunction();
+  const { storeCustomizationSetting } = useGetSetting()
+  const { showingTranslateValue } = useUtilsFunction()
 
   const featurePromo = [
     {
       id: 1,
-      title: showingTranslateValue(
-        storeCustomizationSetting?.footer?.shipping_card
-      ),
+      title: 'Free Shipping From $500.00',
 
       icon: FiTruck,
     },
@@ -40,7 +38,7 @@ const FeatureCard = () => {
       ),
       icon: FiGift,
     },
-  ];
+  ]
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 mx-auto">
@@ -63,7 +61,7 @@ const FeatureCard = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default FeatureCard;
+export default FeatureCard

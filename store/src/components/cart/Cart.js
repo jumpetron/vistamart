@@ -1,39 +1,39 @@
-import { useRouter } from "next/router";
-import React, { useContext } from "react";
-import { useCart } from "react-use-cart";
-import { IoBagCheckOutline, IoClose, IoBagHandle } from "react-icons/io5";
+import { useRouter } from 'next/router'
+import React, { useContext } from 'react'
+import { useCart } from 'react-use-cart'
+import { IoBagCheckOutline, IoClose, IoBagHandle } from 'react-icons/io5'
 
 //internal import
-import { getUserSession } from "@lib/auth";
-import CartItem from "@components/cart/CartItem";
-import { SidebarContext } from "@context/SidebarContext";
-import useUtilsFunction from "@hooks/useUtilsFunction";
+import { getUserSession } from '@lib/auth'
+import CartItem from '@components/cart/CartItem'
+import { SidebarContext } from '@context/SidebarContext'
+import useUtilsFunction from '@hooks/useUtilsFunction'
 
 const Cart = () => {
-  const router = useRouter();
-  const { isEmpty, items, cartTotal } = useCart();
-  const { closeCartDrawer } = useContext(SidebarContext);
-  const { currency } = useUtilsFunction();
-  const userInfo = getUserSession();
+  const router = useRouter()
+  const { isEmpty, items, cartTotal } = useCart()
+  const { closeCartDrawer } = useContext(SidebarContext)
+  const { currency } = useUtilsFunction()
+  const userInfo = getUserSession()
 
   // console.log("userInfo", userInfo);
 
   const handleCheckout = () => {
     if (items?.length <= 0) {
-      closeCartDrawer();
+      closeCartDrawer()
     } else {
       if (!userInfo) {
         // console.log("userInfo::", userInfo, "history");
 
         // Redirect to login page with returnUrl query parameter
-        router.push(`/auth/login?redirectUrl=checkout`);
-        closeCartDrawer();
+        router.push(`/auth/login?redirectUrl=checkout`)
+        closeCartDrawer()
       } else {
-        router.push("/checkout");
-        closeCartDrawer();
+        router.push('/checkout')
+        closeCartDrawer()
       }
     }
-  };
+  }
 
   return (
     <>
@@ -88,14 +88,13 @@ const Cart = () => {
               Proceed To Checkout
             </span>
             <span className="rounded-lg font-bold py-2 px-3 bg-white text-emerald-600">
-              {currency}
-              {cartTotal.toFixed(2)}
+              ${cartTotal.toFixed(2)}
             </span>
           </button>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

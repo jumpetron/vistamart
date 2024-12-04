@@ -1,47 +1,47 @@
-import { useContext, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import { useCart } from "react-use-cart";
-import { IoSearchOutline } from "react-icons/io5";
-import { FiShoppingCart, FiUser, FiBell } from "react-icons/fi";
-import useTranslation from "next-translate/useTranslation";
+import { useContext, useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { useCart } from 'react-use-cart'
+import { IoSearchOutline } from 'react-icons/io5'
+import { FiShoppingCart, FiUser, FiBell } from 'react-icons/fi'
+import useTranslation from 'next-translate/useTranslation'
 
 //internal import
-import { getUserSession } from "@lib/auth";
-import useGetSetting from "@hooks/useGetSetting";
-import { handleLogEvent } from "src/lib/analytics";
-import NavbarPromo from "@layout/navbar/NavbarPromo";
-import CartDrawer from "@components/drawer/CartDrawer";
-import { SidebarContext } from "@context/SidebarContext";
+import { getUserSession } from '@lib/auth'
+import useGetSetting from '@hooks/useGetSetting'
+import { handleLogEvent } from 'src/lib/analytics'
+import NavbarPromo from '@layout/navbar/NavbarPromo'
+import CartDrawer from '@components/drawer/CartDrawer'
+import { SidebarContext } from '@context/SidebarContext'
 
 const Navbar = () => {
-  const { t } = useTranslation();
-  const [searchText, setSearchText] = useState("");
-  const { toggleCartDrawer } = useContext(SidebarContext);
-  const { totalItems } = useCart();
-  const router = useRouter();
+  const { t } = useTranslation()
+  const [searchText, setSearchText] = useState('')
+  const { toggleCartDrawer } = useContext(SidebarContext)
+  const { totalItems } = useCart()
+  const router = useRouter()
 
-  const userInfo = getUserSession();
+  const userInfo = getUserSession()
 
-  const { storeCustomizationSetting } = useGetSetting();
+  const { storeCustomizationSetting } = useGetSetting()
 
   // console.log("storeCustomizationSetting", storeCustomizationSetting);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // return;
     if (searchText) {
-      router.push(`/search?query=${searchText}`, null, { scroll: false });
-      setSearchText("");
-      handleLogEvent("search", `searched ${searchText}`);
+      router.push(`/search?query=${searchText}`, null, { scroll: false })
+      setSearchText('')
+      handleLogEvent('search', `searched ${searchText}`)
     } else {
-      router.push(`/ `, null, { scroll: false });
-      setSearchText("");
+      router.push(`/ `, null, { scroll: false })
+      setSearchText('')
     }
-  };
+  }
 
   // console.log(
   //   "storeCustomizationSetting?.navbar?.header_logo",
@@ -65,10 +65,7 @@ const Navbar = () => {
                   sizes="100vw"
                   className="w-full h-auto"
                   // priority
-                  src={
-                    storeCustomizationSetting?.navbar?.logo ||
-                    "https://vaporvibe.com.bd/wp-content/uploads/2023/12/Vaporvibe.webp"
-                  }
+                  src={'https://staging-frontend.cleversity.com/logo-color.png'}
                   alt="logo"
                 />
               </div>
@@ -156,6 +153,6 @@ const Navbar = () => {
         <NavbarPromo />
       </div>
     </>
-  );
-};
-export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
+  )
+}
+export default dynamic(() => Promise.resolve(Navbar), { ssr: false })
