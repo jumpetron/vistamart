@@ -12,28 +12,28 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang='en'>
         <Head>
           <link
-            rel="icon"
+            rel='icon'
             href={'https://staging-frontend.cleversity.com/logo-color.png'}
           />
-          <meta property="og:title" content={'vistamart'} />
-          <meta property="og:type" content="eCommerce Website" />
-          <meta property="og:description" content={'vistamart online store'} />
+          <meta property='og:title' content={'vistamart'} />
+          <meta property='og:type' content='eCommerce Website' />
+          <meta property='og:description' content={'vistamart online store'} />
           <meta
-            name="keywords"
+            name='keywords'
             content={'vistamart online store' || 'ecommenrce online store'}
           />
           <meta
-            property="og:url"
+            property='og:url'
             content={
               'https://vistamart.vercel.app' ||
-              'https://vaporvibe-store.vercel.app/'
+              'https://vistamart-store.vercel.app/'
             }
           />
           <meta
-            property="og:image"
+            property='og:image'
             content={'https://staging-frontend.cleversity.com/logo-color.png'}
           />
         </Head>

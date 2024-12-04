@@ -40,7 +40,7 @@ app.options('*', cors()) // include before other routes
 app.use(
   cors({
     origin: ['http://localhost:3000', 'http://localhost:4100'], // Add both origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Add the necessary methods
+    methods: ['GET', 'POST', 'PUT', 'DELETE'] // Add the necessary methods
   })
 )
 
@@ -93,12 +93,12 @@ app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 //     origin: [
 //       "http://localhost:3000",
 //       "http://localhost:4100",
-//       "https://admin-vaporvibe.vercel.app",
+//       "https://admin-vistamart.vercel.app",
 //       "https://dashtar-admin.vercel.app",
-//       "https://vaporvibe-store.vercel.app",
-//       "https://vaporvibe-admin.netlify.app",
+//       "https://vistamart-store.vercel.app",
+//       "https://vistamart-admin.netlify.app",
 //       "https://dashtar-admin.netlify.app",
-//       "https://vaporvibe-store-nine.vercel.app",
+//       "https://vistamart-store-nine.vercel.app",
 //     ], //add your origin here instead of this
 //     methods: ["PUT", "GET", "POST", "DELETE", "PATCH", "OPTIONS"],
 //     credentials: false,

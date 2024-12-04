@@ -100,262 +100,262 @@ const HomePage = ({
   setTermsConditionsMenuLink,
   termsConditionsMenuLink,
   couponList,
-  setCouponList,
+  setCouponList
 }) => {
   const { t } = useTranslation()
 
   return (
     <>
-      <div className="sticky top-0 z-20 flex justify-end">
+      <div className='sticky top-0 z-20 flex justify-end'>
         {isSubmitting ? (
-          <Button disabled={true} type="button" className="h-10 px-6">
+          <Button disabled={true} type='button' className='h-10 px-6'>
             <img
               src={spinnerLoadingImage}
-              alt="Loading"
+              alt='Loading'
               width={20}
               height={10}
             />{' '}
-            <span className="font-serif ml-2 font-light">
+            <span className='font-serif ml-2 font-light'>
               {' '}
               {t('Processing')}
             </span>
           </Button>
         ) : (
-          <Button type="submit" className="h-10 px-6 ">
+          <Button type='submit' className='h-10 px-6 '>
             {' '}
             {isSave ? t('SaveBtn') : t('UpdateBtn')}
           </Button>
         )}
       </div>
-      <div className="grid grid-cols-12 font-sans pr-4">
+      <div className='grid grid-cols-12 font-sans pr-4'>
         {/*  ====================================================== Header ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" />
+        <div className='col-span-12 md:col-span-12 lg:col-span-12'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' />
             {t('Header')}
           </div>
 
-          <hr className="md:mb-6 mb-3" />
+          <hr className='md:mb-6 mb-3' />
 
-          <div className="flex-grow scrollbar-hide w-full max-h-full xl:px-10">
-            <div className="inline-flex md:text-base text-sm my-3 text-gray-500 dark:text-gray-400">
+          <div className='flex-grow scrollbar-hide w-full max-h-full xl:px-10'>
+            <div className='inline-flex md:text-base text-sm my-3 text-gray-500 dark:text-gray-400'>
               <strong>{t('HeaderContacts')}</strong>
             </div>
-            <hr className="md:mb-12 mb-3" />
+            <hr className='md:mb-12 mb-3' />
 
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('HeaderText')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <InputAreaTwo
                   register={register}
                   label={t('HeaderText')}
-                  name="help_text"
-                  type="text"
+                  name='help_text'
+                  type='text'
                   placeholder={t('weAreAvailable')}
                 />
                 <Error errorName={errors.help_text} />
               </div>
             </div>
 
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('PhoneNumber')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <InputAreaTwo
                   register={register}
                   label={t('PhoneNumber')}
-                  name="phone_number"
-                  type="text"
-                  placeholder="+01234560352"
+                  name='phone_number'
+                  type='text'
+                  placeholder='+01234560352'
                 />
                 <Error errorName={errors.phone_number} />
               </div>
             </div>
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-              <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+              <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('HeaderLogo')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <Uploader imageUrl={headerLogo} setImageUrl={setHeaderLogo} />
               </div>
             </div>
           </div>
 
           {/*  ================= Menu Editor ======================== */}
-          <div className="grid md:grid-cols-5 sm:grid-cols-6 scrollbar-hide w-full max-h-full pb-0">
-            <div className="md:col-span-1 sm:col-span-2"></div>
-            <div className="sm:col-span-4 md:pl-3 sm:pl-2">
-              <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative">
+          <div className='grid md:grid-cols-5 sm:grid-cols-6 scrollbar-hide w-full max-h-full pb-0'>
+            <div className='md:col-span-1 sm:col-span-2'></div>
+            <div className='sm:col-span-4 md:pl-3 sm:pl-2'>
+              <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative'>
                 <strong>{t('MenuEditor')}</strong>
               </div>
 
-              <hr className="md:mb-12 mb-3" />
+              <hr className='md:mb-12 mb-3' />
 
-              <div className="grid grid-cols-12 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid grid-cols-12 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('Categories')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('Categories')}
-                    name="categories"
-                    type="text"
+                    name='categories'
+                    type='text'
                     placeholder={t('Categories')}
                   />
                   <Error errorName={errors.categories} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('AboutUs')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('AboutUs')}
-                    name="about_us"
-                    type="text"
+                    name='about_us'
+                    type='text'
                     placeholder={t('AboutUs')}
                   />
                   <Error errorName={errors.about_us} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('ContactUs')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('ContactUs')}
-                    name="contact_us"
-                    type="text"
+                    name='contact_us'
+                    type='text'
                     placeholder={t('ContactUs')}
                   />
                   <Error errorName={errors.contact_us} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('Offers')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('Offers')}
-                    name="offers"
-                    type="text"
+                    name='offers'
+                    type='text'
                     placeholder={t('Offers')}
                   />
                   <Error errorName={errors.offers} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('FAQ')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('FAQ')}
-                    name="faq"
-                    type="text"
+                    name='faq'
+                    type='text'
                     placeholder={t('FAQ')}
                   />
                   <Error errorName={errors.faq} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('PrivacyPolicy')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('PrivacyPolicy')}
-                    name="privacy_policy"
-                    type="text"
+                    name='privacy_policy'
+                    type='text'
                     placeholder={t('PrivacyPolicy')}
                   />
                   <Error errorName={errors.privacy_policy} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('TermsConditions')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('TermsConditions')}
-                    name="term_and_condition"
-                    type="text"
+                    name='term_and_condition'
+                    type='text'
                     placeholder={t('TermsConditions')}
                   />
                   <Error errorName={errors.term_and_condition} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('Pages')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('Pages')}
-                    name="pages"
-                    type="text"
+                    name='pages'
+                    type='text'
                     placeholder={t('Pages')}
                   />
                   <Error errorName={errors.pages} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('MyAccount')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('MyAccount')}
-                    name="my_account"
-                    type="text"
+                    name='my_account'
+                    type='text'
                     placeholder={t('MyAccount')}
                   />
                   <Error errorName={errors.my_account} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('Login')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('Login')}
-                    name="login"
-                    type="text"
+                    name='login'
+                    type='text'
                     placeholder={t('Login')}
                   />
                   <Error errorName={errors.login} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('Logout')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('Logout')}
-                    name="logout"
-                    type="text"
+                    name='logout'
+                    type='text'
                     placeholder={t('Logout')}
                   />
                   <Error errorName={errors.logout} />
                 </div>
-                <div className="col-span-4">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='col-span-4'>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('CheckOut')}
                   </label>
                   <InputAreaTwo
                     register={register}
                     label={t('CheckOut')}
-                    name="checkout"
-                    type="text"
+                    name='checkout'
+                    type='text'
                     placeholder={t('CheckOut')}
                   />
                   <Error errorName={errors.checkout} />
                 </div>
               </div>
 
-              <div className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+              <div className='grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
                 <div>
-                  <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
+                  <h4 className='font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300'>
                     {t('Categories')}
                   </h4>
 
@@ -366,7 +366,7 @@ const HomePage = ({
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
+                  <h4 className='font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300'>
                     {t('AboutUs')}
                   </h4>
 
@@ -377,7 +377,7 @@ const HomePage = ({
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
+                  <h4 className='font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300'>
                     {t('ContactUs')}
                   </h4>
 
@@ -388,7 +388,7 @@ const HomePage = ({
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
+                  <h4 className='font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300'>
                     {t('Offers')}
                   </h4>
 
@@ -399,7 +399,7 @@ const HomePage = ({
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
+                  <h4 className='font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300'>
                     {t('FAQ')}
                   </h4>
 
@@ -410,7 +410,7 @@ const HomePage = ({
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
+                  <h4 className='font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300'>
                     {t('PrivacyPolicy')}
                   </h4>
 
@@ -421,7 +421,7 @@ const HomePage = ({
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
+                  <h4 className='font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300'>
                     {t('TermsConditions')}
                   </h4>
 
@@ -439,14 +439,14 @@ const HomePage = ({
         </div>
 
         {/*  ====================================================== Main Slider ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-5">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" /> {t('MainSlider')}
+        <div className='col-span-12 md:col-span-12 lg:col-span-12 mt-5'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' /> {t('MainSlider')}
           </div>
 
-          <hr className="mb-3" />
+          <hr className='mb-3' />
 
-          <div className="flex-grow scrollbar-hide w-full max-h-full xl:px-10">
+          <div className='flex-grow scrollbar-hide w-full max-h-full xl:px-10'>
             <TabsComponent>
               <Tabs>
                 <TabList>
@@ -458,12 +458,12 @@ const HomePage = ({
                   <Tab>{t('Options')}</Tab>
                 </TabList>
 
-                <TabPanel className="md:mt-10 mt-3">
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <TabPanel className='md:mt-10 mt-3'>
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderImages')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <Uploader
                         imageUrl={sliderImage}
                         setImageUrl={setSliderImage}
@@ -471,68 +471,68 @@ const HomePage = ({
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1 ">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1 '>
                       {t('SliderTitle')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         required={true}
                         register={register}
                         label={t('SliderTitle')}
-                        name="slider_title"
-                        type="text"
+                        name='slider_title'
+                        type='text'
                         placeholder={t('SliderTitle')}
                       />
                       <Error errorName={errors.slider_title} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderDescription')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <TextAreaCom
                         required={true}
                         register={register}
-                        label="Slider Description"
-                        name="slider_description"
-                        type="text"
-                        placeholder="Slider Description"
+                        label='Slider Description'
+                        name='slider_description'
+                        type='text'
+                        placeholder='Slider Description'
                       />
                       <Error errorName={errors.slider_description} />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonName')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         required={true}
                         register={register}
                         label={t('SliderButtonName')}
-                        name="slider_button_name"
-                        type="text"
+                        name='slider_button_name'
+                        type='text'
                         placeholder={t('SliderButtonName')}
                       />
                       <Error errorName={errors.slider_button_name} />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonLink')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         required={true}
                         register={register}
-                        label="Slider Button Link"
-                        name="slider_button_link"
-                        type="text"
-                        placeholder="Slider Button Link"
+                        label='Slider Button Link'
+                        name='slider_button_link'
+                        type='text'
+                        placeholder='Slider Button Link'
                       />
                       <Error errorName={errors.slider_button_link} />
                     </div>
@@ -540,11 +540,11 @@ const HomePage = ({
                 </TabPanel>
 
                 <TabPanel>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderImages')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <Uploader
                         imageUrl={sliderImageTwo}
                         setImageUrl={setSliderImageTwo}
@@ -552,63 +552,63 @@ const HomePage = ({
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderTitle')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Title"
-                        name="slider_title_two"
-                        type="text"
+                        label='Slider Title'
+                        name='slider_title_two'
+                        type='text'
                         placeholder={t('SliderTitle')}
                       />
                       <Error errorName={errors.slider_title_two} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderDescription')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <TextAreaCom
                         register={register}
-                        label="Slider Description Two"
-                        name="slider_description_two"
-                        type="text"
+                        label='Slider Description Two'
+                        name='slider_description_two'
+                        type='text'
                         placeholder={t('SliderDescription')}
                       />
                       <Error errorName={errors.slider_description_two} />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonName')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Name"
-                        name="slider_button_name_two"
-                        type="text"
+                        label='Slider Button Name'
+                        name='slider_button_name_two'
+                        type='text'
                         placeholder={t('SliderButtonName')}
                       />
                       <Error errorName={errors.slider_button_name_two} />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonLink')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Link"
-                        name="slider_button_link_two"
-                        type="text"
+                        label='Slider Button Link'
+                        name='slider_button_link_two'
+                        type='text'
                         placeholder={t('SliderButtonLink')}
                       />
                       <Error errorName={errors.slider_button_link_two} />
@@ -617,11 +617,11 @@ const HomePage = ({
                 </TabPanel>
 
                 <TabPanel>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderImages')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <Uploader
                         imageUrl={sliderImageThree}
                         setImageUrl={setSliderImageThree}
@@ -629,63 +629,63 @@ const HomePage = ({
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderTitle')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label=" Slider Title"
-                        name="slider_title_three"
-                        type="text"
+                        label=' Slider Title'
+                        name='slider_title_three'
+                        type='text'
                         placeholder={t('SliderTitle')}
                       />
                       <Error errorName={errors.slider_title_three} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderDescription')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <TextAreaCom
                         register={register}
-                        label="Slider Description"
-                        name="slider_description_three"
-                        type="text"
+                        label='Slider Description'
+                        name='slider_description_three'
+                        type='text'
                         placeholder={t('SliderDescription')}
                       />
 
                       <Error errorName={errors.slider_description_three} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonName')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Name"
-                        name="slider_button_name_three"
-                        type="text"
+                        label='Slider Button Name'
+                        name='slider_button_name_three'
+                        type='text'
                         placeholder={t('SliderButtonName')}
                       />
                       <Error errorName={errors.slider_button_name_three} />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonLink')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Link"
-                        name="slider_button_link_three"
-                        type="text"
+                        label='Slider Button Link'
+                        name='slider_button_link_three'
+                        type='text'
                         placeholder={t('SliderButtonLink')}
                       />
                       <Error errorName={errors.slider_button_link_three} />
@@ -694,11 +694,11 @@ const HomePage = ({
                 </TabPanel>
 
                 <TabPanel>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderImages')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <Uploader
                         imageUrl={sliderImageFour}
                         setImageUrl={setSliderImageFour}
@@ -706,62 +706,62 @@ const HomePage = ({
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderTitle')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label=" Slider Title"
-                        name="slider_title_four"
-                        type="text"
+                        label=' Slider Title'
+                        name='slider_title_four'
+                        type='text'
                         placeholder={t('SliderTitle')}
                       />
                       <Error errorName={errors.slider_title_four} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderDescription')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <TextAreaCom
                         register={register}
-                        label="Slider Description"
-                        name="slider_description_four"
-                        type="text"
+                        label='Slider Description'
+                        name='slider_description_four'
+                        type='text'
                         placeholder={t('SliderDescription')}
                       />
                       <Error errorName={errors.slider_description_four} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonName')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Name"
-                        name="slider_button_name_four"
-                        type="text"
+                        label='Slider Button Name'
+                        name='slider_button_name_four'
+                        type='text'
                         placeholder={t('SliderButtonName')}
                       />
                       <Error errorName={errors.slider_button_name_four} />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonLink')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Link"
-                        name="slider_button_link_four"
-                        type="text"
+                        label='Slider Button Link'
+                        name='slider_button_link_four'
+                        type='text'
                         placeholder={t('SliderButtonLink')}
                       />
                       <Error errorName={errors.slider_button_link_four} />
@@ -770,11 +770,11 @@ const HomePage = ({
                 </TabPanel>
 
                 <TabPanel>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderImages')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <Uploader
                         imageUrl={sliderImageFive}
                         setImageUrl={setSliderImageFive}
@@ -782,62 +782,62 @@ const HomePage = ({
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderTitle')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label=" Slider Title"
-                        name="slider_title_five"
-                        type="text"
+                        label=' Slider Title'
+                        name='slider_title_five'
+                        type='text'
                         placeholder={t('SliderTitle')}
                       />
                       <Error errorName={errors.slider_title_five} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderDescription')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <TextAreaCom
                         register={register}
-                        label="Slider Description"
-                        name="slider_description_five"
-                        type="text"
+                        label='Slider Description'
+                        name='slider_description_five'
+                        type='text'
                         placeholder={t('SliderDescription')}
                       />
                       <Error errorName={errors.slider_description_five} />
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonName')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Name"
-                        name="slider_button_name_five"
-                        type="text"
+                        label='Slider Button Name'
+                        name='slider_button_name_five'
+                        type='text'
                         placeholder={t('SliderButtonName')}
                       />
                       <Error errorName={errors.slider_button_name_five} />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('SliderButtonLink')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <InputAreaTwo
                         register={register}
-                        label="Slider Button Link"
-                        name="slider_button_link_five"
-                        type="text"
+                        label='Slider Button Link'
+                        name='slider_button_link_five'
+                        type='text'
                         placeholder={t('SliderButtonLink')}
                       />
                       <Error errorName={errors.slider_button_link_five} />
@@ -846,10 +846,10 @@ const HomePage = ({
                 </TabPanel>
 
                 <TabPanel>
-                  <div className="grid md:grid-cols-3 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                  <div className='grid md:grid-cols-3 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
                     <div>
-                      <div className="relative">
-                        <h4 className="font-medium md:text-base text-sm mb-2 dark:text-gray-400">
+                      <div className='relative'>
+                        <h4 className='font-medium md:text-base text-sm mb-2 dark:text-gray-400'>
                           {' '}
                           {t('LeftRighArrows')}
                         </h4>
@@ -861,8 +861,8 @@ const HomePage = ({
                       />
                     </div>
                     <div>
-                      <div className="relative">
-                        <h4 className="font-medium md:text-base text-sm mb-2 dark:text-gray-400">
+                      <div className='relative'>
+                        <h4 className='font-medium md:text-base text-sm mb-2 dark:text-gray-400'>
                           {t('BottomDots')}
                         </h4>
                       </div>
@@ -873,8 +873,8 @@ const HomePage = ({
                       />
                     </div>
                     <div>
-                      <div className="relative">
-                        <h4 className="font-medium md:text-base text-sm mb-2 dark:text-gray-400">
+                      <div className='relative'>
+                        <h4 className='font-medium md:text-base text-sm mb-2 dark:text-gray-400'>
                           {t('Both')}
                         </h4>
                       </div>
@@ -892,25 +892,25 @@ const HomePage = ({
         </div>
 
         {/*  ======================================================Discount Coupon Code Box ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-5">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" />
+        <div className='col-span-12 md:col-span-12 lg:col-span-12 mt-5'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' />
             {t('DiscountCouponTitle1')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full">
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full'>
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('ShowHide')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setIsCoupon}
                   processOption={isCoupon}
-                  name="isCoupon"
+                  name='isCoupon'
                 />
               </div>
             </div>
@@ -922,28 +922,27 @@ const HomePage = ({
                 transition: 'ease-out 0.4s',
 
                 visibility: !isCoupon ? 'hidden' : 'visible',
-                opacity: !isCoupon ? '0' : '1',
-              }}
-            >
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !isCoupon ? '0' : '1'
+              }}>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('HomePageDiscountTitle')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <InputAreaTwo
                   register={register}
                   label={t('HomePageDiscountTitle')}
-                  name="discount_title"
-                  type="text"
+                  name='discount_title'
+                  type='text'
                   placeholder={t('HomePageDiscountTitle')}
                 />
                 <Error errorName={errors.phone_number} />
               </div>
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('SuperDiscountActiveCouponCode')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <ReactTagInput
-                  placeholder="Enter the coupon code from coupon table and click inter"
+                  placeholder='Enter the coupon code from coupon table and click inter'
                   tags={couponList || []}
                   onChange={(variant) => setCouponList(variant)}
                 />
@@ -961,25 +960,24 @@ const HomePage = ({
                   : 'auto',
                 transition: 'all 0.5s',
                 visibility: isCoupon ? 'hidden' : 'visible',
-                opacity: isCoupon ? '0' : '1',
-              }}
-            >
+                opacity: isCoupon ? '0' : '1'
+              }}>
               <div>
-                <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400">
-                  <div className="relative">
+                <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400'>
+                  <div className='relative'>
                     <strong>{t('SliderFullWidth')}</strong>
                   </div>
                 </div>
 
-                <hr className="mb-4 mt-2" />
+                <hr className='mb-4 mt-2' />
 
-                <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 ">
-                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 '>
+                  <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                     {t('SliderFullWidth')}
                   </label>
-                  <div className="sm:col-span-4 ">
+                  <div className='sm:col-span-4 '>
                     <SwitchToggle
-                      title=""
+                      title=''
                       handleProcess={setIsSliderFullWidth}
                       processOption={isSliderFullWidth}
                       name={isSliderFullWidth}
@@ -990,23 +988,23 @@ const HomePage = ({
 
               {!isSliderFullWidth && !isCoupon && (
                 <div>
-                  <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 mt-5 ">
-                    <div className="relative">
+                  <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 mt-5 '>
+                    <div className='relative'>
                       <strong> {t('PlaceHolderImage')} </strong>
                     </div>
                   </div>
-                  <hr className="mb-4 mt-2" />
+                  <hr className='mb-4 mt-2' />
 
-                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mt-4 md:mb-6 mb-3 pb-2">
-                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mt-4 md:mb-6 mb-3 pb-2'>
+                    <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                       {t('PlaceHolderImage')}
                     </label>
-                    <div className="sm:col-span-4">
+                    <div className='sm:col-span-4'>
                       <Uploader
                         imageUrl={placeholderImage}
                         setImageUrl={setPlaceHolderImage}
                       />
-                      <div className="text-xs text-center text-gray-400">
+                      <div className='text-xs text-center text-gray-400'>
                         <em>( {t('ImagesResolution')} )</em>
                       </div>
                     </div>
@@ -1018,21 +1016,21 @@ const HomePage = ({
         </div>
 
         {/*  ====================================================== Promotion Banner ===================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3 md:mt-0 mt-10">
-            <FiSettings className="mt-1 mr-2" /> {t('PromotionBanner')}
+        <div className='col-span-12 md:col-span-12 lg:col-span-12'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3 md:mt-0 mt-10'>
+            <FiSettings className='mt-1 mr-2' /> {t('PromotionBanner')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0'>
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setAllowPromotionBanner}
                   processOption={allowPromotionBanner}
                   name={allowPromotionBanner}
@@ -1045,35 +1043,34 @@ const HomePage = ({
                 height: allowPromotionBanner ? 'auto' : 0,
                 transition: 'all 0.4s',
                 visibility: !allowPromotionBanner ? 'hidden' : 'visible',
-                opacity: !allowPromotionBanner ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !allowPromotionBanner ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="promotion_title"
-                    type="text"
+                    label='Title'
+                    name='promotion_title'
+                    type='text'
                     placeholder={t('Title')}
                   />
                   <Error errorName={errors.promotion_title} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Description')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <TextAreaCom
                     register={register}
-                    label="Promotion Description"
-                    name="promotion_description"
-                    type="text"
+                    label='Promotion Description'
+                    name='promotion_description'
+                    type='text'
                     placeholder={t('PromotionDescription')}
                   />
 
@@ -1081,33 +1078,33 @@ const HomePage = ({
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ButtonName')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Button Name"
-                    name="promotion_button_name"
-                    type="text"
+                    label='Button Name'
+                    name='promotion_button_name'
+                    type='text'
                     placeholder={t('ButtonName')}
                   />
                   <Error errorName={errors.promotion_button_name} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ButtonLink')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Button Link "
-                    name="promotion_button_link"
-                    type="text"
-                    placeholder="https://vaporvibe-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8"
+                    label='Button Link '
+                    name='promotion_button_link'
+                    type='text'
+                    placeholder='https://vistamart-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8'
                   />
                   <Error errorName={errors.promotion_button_link} />
                 </div>
@@ -1119,22 +1116,22 @@ const HomePage = ({
         {/*  ====================================================== Featured Categories ====================================================== */}
 
         {/*  ====================================================== Popular Products ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-15">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3 relative">
-            <FiSettings className="mt-1 mr-2" />
+        <div className='col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-15'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3 relative'>
+            <FiSettings className='mt-1 mr-2' />
             {t('PopularProductsTitle')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0'>
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setPopularProducts}
                   processOption={popularProducts}
                   name={popularProducts}
@@ -1147,51 +1144,50 @@ const HomePage = ({
                 height: popularProducts ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !popularProducts ? 'hidden' : 'visible',
-                opacity: !popularProducts ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !popularProducts ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="popular_title"
-                    type="text"
+                    label='Title'
+                    name='popular_title'
+                    type='text'
                     placeholder={t('Title')}
                   />
                   <Error errorName={errors.popular_title} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Description')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <TextAreaCom
                     register={register}
-                    label="Popular Description"
-                    name="popular_description"
-                    type="text"
+                    label='Popular Description'
+                    name='popular_description'
+                    type='text'
                     placeholder={t('PopularDescription')}
                   />
                   <Error errorName={errors.popular_description} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ProductsLimit')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <SelectProductLimit
                     register={register}
                     required={true}
-                    label="Popular Products Limit"
-                    name="popular_product_limit"
+                    label='Popular Products Limit'
+                    name='popular_product_limit'
                   />
                   <Error errorName={errors.popular_product_limit} />
                 </div>
@@ -1207,20 +1203,20 @@ const HomePage = ({
         </div>
 
         {/*  ====================================================== Quick Delivery Section ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-15">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" />{' '}
+        <div className='col-span-12 md:col-span-12 lg:col-span-12 mt-15'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' />{' '}
             {t('QuickDeliverySectionTitle')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0'>
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
                   title={''}
                   handleProcess={setQuickDelivery}
@@ -1235,34 +1231,33 @@ const HomePage = ({
                 height: quickDelivery ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !quickDelivery ? 'hidden' : 'visible',
-                opacity: !quickDelivery ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !quickDelivery ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('SubTitle')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="quick_delivery_subtitle"
-                    type="text"
+                    label='Title'
+                    name='quick_delivery_subtitle'
+                    type='text'
                     placeholder={t('SubTitle')}
                   />
                   <Error errorName={errors.quick_delivery_subtitle} />
                 </div>
               </div>
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="quick_delivery_title"
-                    type="text"
+                    label='Title'
+                    name='quick_delivery_title'
+                    type='text'
                     placeholder={t('Title')}
                   />
                   <Error errorName={errors.quick_delivery_title} />
@@ -1285,43 +1280,43 @@ const HomePage = ({
                 </div>
               </div> */}
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ButtonName')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Button Name "
-                    name="quick_delivery_button"
-                    type="text"
+                    label='Button Name '
+                    name='quick_delivery_button'
+                    type='text'
                     placeholder={t('ButtonName')}
                   />
                   <Error errorName={errors.quick_delivery_button} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ButtonLink')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Button Link"
-                    name="quick_delivery_link"
-                    type="text"
-                    placeholder="https://vaporvibe-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8"
+                    label='Button Link'
+                    name='quick_delivery_link'
+                    type='text'
+                    placeholder='https://vistamart-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8'
                   />
                   <Error errorName={errors.quick_delivery_link} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Image')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <Uploader
                     imageUrl={quickSectionImage}
                     setImageUrl={setQuickSectionImage}
@@ -1333,22 +1328,22 @@ const HomePage = ({
         </div>
 
         {/*  ====================================================== Latest Discounted Products ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-10">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" />{' '}
+        <div className='col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-10'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' />{' '}
             {t('LatestDiscountedProductsTitle')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0'>
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setLatestDiscounted}
                   processOption={latestDiscounted}
                   name={latestDiscounted}
@@ -1361,51 +1356,50 @@ const HomePage = ({
                 height: latestDiscounted ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !latestDiscounted ? 'hidden' : 'visible',
-                opacity: !latestDiscounted ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !latestDiscounted ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="latest_discount_title"
-                    type="text"
+                    label='Title'
+                    name='latest_discount_title'
+                    type='text'
                     placeholder={t('Title')}
                   />
                   <Error errorName={errors.latest_discount_title} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Description')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <TextAreaCom
                     register={register}
-                    label="Latest Discount Description"
-                    name="latest_discount_description"
-                    type="text"
+                    label='Latest Discount Description'
+                    name='latest_discount_description'
+                    type='text'
                     placeholder={t('LatestDiscountDescription')}
                   />
                   <Error errorName={errors.latest_discount_description} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ProductsLimit')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <SelectProductLimit
                     register={register}
                     required={true}
-                    label="Latest Discount Products Limit"
-                    name="latest_discount_product_limit"
+                    label='Latest Discount Products Limit'
+                    name='latest_discount_product_limit'
                   />
                   <Error errorName={errors.latest_discount_product_limit} />
                 </div>
@@ -1424,20 +1418,19 @@ const HomePage = ({
         <div
           className={`col-span-12 md:col-span-12 lg:col-span-12 ${
             window.innerWidth < 400 ? 'md:my-0 my-24' : 'md:my-0 my-24'
-          }`}
-        >
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" /> {t('GetYourDailyNeedsTitle')}
+          }`}>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' /> {t('GetYourDailyNeedsTitle')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0'>
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
                   title={''}
                   handleProcess={setDailyNeeds}
@@ -1452,46 +1445,45 @@ const HomePage = ({
                 height: dailyNeeds ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !dailyNeeds ? 'hidden' : 'visible',
-                opacity: !dailyNeeds ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !dailyNeeds ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="daily_need_title"
-                    type="text"
+                    label='Title'
+                    name='daily_need_title'
+                    type='text'
                     placeholder={t('Title')}
                   />
                   <Error errorName={errors.daily_need_title} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Description')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <TextAreaCom
                     register={register}
-                    label="Daily Need Description"
-                    name="daily_need_description"
-                    type="text"
+                    label='Daily Need Description'
+                    name='daily_need_description'
+                    type='text'
                     placeholder={t('DailyNeedDescription')}
                   />
                   <Error errorName={errors.daily_need_description} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ImageLeft')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <Uploader
                     imageUrl={getYourDailyNeedImageLeft}
                     setImageUrl={setGetYourDailyNeedImageLeft}
@@ -1499,11 +1491,11 @@ const HomePage = ({
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('ImageRight')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <Uploader
                     imageUrl={getYourDailyNeedImageRight}
                     setImageUrl={setGetYourDailyNeedImageRight}
@@ -1511,11 +1503,11 @@ const HomePage = ({
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Button1image')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <Uploader
                     imageUrl={getButton1image}
                     setImageUrl={setGetButton1image}
@@ -1523,27 +1515,27 @@ const HomePage = ({
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Button1Link')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Button Link "
-                    name="daily_need_app_link"
-                    type="text"
-                    placeholder="https://vaporvibe-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8"
+                    label='Button Link '
+                    name='daily_need_app_link'
+                    type='text'
+                    placeholder='https://vistamart-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8'
                   />
                   <Error errorName={errors.daily_need_app_link} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Button2image')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <Uploader
                     imageUrl={getButton2image}
                     setImageUrl={setGetButton2image}
@@ -1551,17 +1543,17 @@ const HomePage = ({
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Button2Link')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Button Link "
-                    name="daily_need_google_link"
-                    type="text"
-                    placeholder="https://vaporvibe-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8"
+                    label='Button Link '
+                    name='daily_need_google_link'
+                    type='text'
+                    placeholder='https://vistamart-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8'
                   />
                   <Error errorName={errors.daily_need_google_link} />
                 </div>
@@ -1574,22 +1566,21 @@ const HomePage = ({
         <div
           className={`col-span-12 md:col-span-12 lg:col-span-12 ${
             window.innerWidth < 400 ? 'md:mt-0 mt-40' : 'md:mt-0 mt-10'
-          }`}
-        >
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" /> {t('FeaturePromoSectionTitle')}
+          }`}>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' /> {t('FeaturePromoSectionTitle')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0'>
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFeaturePromo}
                   processOption={featurePromo}
                   name={featurePromo}
@@ -1602,68 +1593,67 @@ const HomePage = ({
                 height: featurePromo ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !featurePromo ? 'hidden' : 'visible',
-                opacity: !featurePromo ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !featurePromo ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('FreeShipping')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="promo_free_shipping"
-                    type="text"
-                    placeholder="From $500.00"
+                    label='Title'
+                    name='promo_free_shipping'
+                    type='text'
+                    placeholder='From $500.00'
                   />
                   <Error errorName={errors.promo_free_shipping} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Support')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="promo_support"
-                    type="text"
-                    placeholder="24/7 At Anytime"
+                    label='Title'
+                    name='promo_support'
+                    type='text'
+                    placeholder='24/7 At Anytime'
                   />
                   <Error errorName={errors.promo_support} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('SecurePayment')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="promo_payment"
-                    type="text"
+                    label='Title'
+                    name='promo_payment'
+                    type='text'
                     placeholder={t('SecurePayment')}
                   />
                   <Error errorName={errors.promo_payment} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('LatestOffer')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="promo_offer"
-                    type="text"
-                    placeholder="Upto 20% Off"
+                    label='Title'
+                    name='promo_offer'
+                    type='text'
+                    placeholder='Upto 20% Off'
                   />
                   <Error errorName={errors.promo_offer} />
                 </div>
@@ -1673,25 +1663,25 @@ const HomePage = ({
         </div>
 
         {/*  ====================================================== Footer Section ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-10">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
-            <FiSettings className="mt-1 mr-2" /> {t('FooterTitle')}
+        <div className='col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-10'>
+          <div className='inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3'>
+            <FiSettings className='mt-1 mr-2' /> {t('FooterTitle')}
           </div>
 
-          <hr className="md:mb-12 mb-3" />
+          <hr className='md:mb-12 mb-3' />
 
-          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative">
+          <div className='xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0'>
+            <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative'>
               <strong>{t('Block')} 1</strong>
             </div>
-            <hr className="md:mb-12 mb-3" />
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <hr className='md:mb-12 mb-3' />
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFooterBlock1}
                   processOption={footerBlock1}
                   name={footerBlock1}
@@ -1704,127 +1694,126 @@ const HomePage = ({
                 height: footerBlock1 ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !footerBlock1 ? 'hidden' : 'visible',
-                opacity: !footerBlock1 ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-4">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !footerBlock1 ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-4'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_title"
-                    type="text"
-                    placeholder="Company"
+                    label='Title'
+                    name='footer_block_one_title'
+                    type='text'
+                    placeholder='Company'
                   />
                   <Error errorName={errors.footer_block_one_title} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 1
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_one_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_one_title'
+                    type='text'
                     placeholder={t('AboutUs')}
                   />
                   <Error errorName={errors.footer_block_one_link_one_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4 mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4 mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_one"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_one'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_one_link_one} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 2
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_two_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_two_title'
+                    type='text'
                     placeholder={t('ContactUs')}
                   />
                   <Error errorName={errors.footer_block_one_link_two_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_two"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_two'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_one_link_two} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 3
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_three_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_three_title'
+                    type='text'
                     placeholder={t('Careers')}
                   />
                   <Error errorName={errors.footer_block_one_link_three_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_three"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_three'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_one_link_three} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 4
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_four_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_four_title'
+                    type='text'
                     placeholder={t('LatestNews')}
                   />
                   <Error errorName={errors.footer_block_one_link_four_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4 mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4 mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_one_link_four"
-                    type="text"
+                    label='Title'
+                    name='footer_block_one_link_four'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_one_link_four} />
@@ -1832,17 +1821,17 @@ const HomePage = ({
               </div>
             </div>
 
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative md:mt-0 mt-24">
+            <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative md:mt-0 mt-24'>
               <strong>{t('Block')} 2</strong>
             </div>
-            <hr className="md:mb-12 mb-3" />
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <hr className='md:mb-12 mb-3' />
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFooterBlock2}
                   processOption={footerBlock2}
                   name={footerBlock2}
@@ -1855,127 +1844,126 @@ const HomePage = ({
                 height: footerBlock2 ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !footerBlock2 ? 'hidden' : 'visible',
-                opacity: !footerBlock2 ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !footerBlock2 ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_title'
+                    type='text'
                     placeholder={t('TopCategory')}
                   />
                   <Error errorName={errors.footer_block_two_title} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 1
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_one_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_one_title'
+                    type='text'
                     placeholder={t('FishAndMeat')}
                   />
                   <Error errorName={errors.footer_block_two_link_one_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_one"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_one'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_two_link_one} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 2
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_two_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_two_title'
+                    type='text'
                     placeholder={t('SoftDrinks')}
                   />
                   <Error errorName={errors.footer_block_two_link_two_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_two"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_two'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_two_link_two} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 3
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_three_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_three_title'
+                    type='text'
                     placeholder={t('BabyCare')}
                   />
                   <Error errorName={errors.footer_block_two_link_three_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_three"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_three'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_two_link_three} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 4
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_four_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_four_title'
+                    type='text'
                     placeholder={t('BeautyAndHealth')}
                   />
                   <Error errorName={errors.footer_block_two_link_four_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_two_link_four"
-                    type="text"
+                    label='Title'
+                    name='footer_block_two_link_four'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_two_link_four} />
@@ -1983,17 +1971,17 @@ const HomePage = ({
               </div>
             </div>
 
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative md:mt-0 mt-24">
+            <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative md:mt-0 mt-24'>
               <strong>{t('Block')} 3</strong>
             </div>
-            <hr className="md:mb-12 mb-3" />
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <hr className='md:mb-12 mb-3' />
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFooterBlock3}
                   processOption={footerBlock3}
                   name={footerBlock3}
@@ -2006,132 +1994,131 @@ const HomePage = ({
                 height: footerBlock3 ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !footerBlock3 ? 'hidden' : 'visible',
-                opacity: !footerBlock3 ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !footerBlock3 ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Title')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_title"
-                    type="text"
-                    placeholder="My Account"
+                    label='Title'
+                    name='footer_block_three_title'
+                    type='text'
+                    placeholder='My Account'
                   />
                   <Error errorName={errors.footer_block_three_title} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 1
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_one_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_three_link_one_title'
+                    type='text'
                     placeholder={t('Dashboard')}
                   />
                   <Error errorName={errors.footer_block_three_link_one_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_one"
-                    type="text"
+                    label='Title'
+                    name='footer_block_three_link_one'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_three_link_one} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 2
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_two_title"
-                    type="text"
+                    label='Title'
+                    name='footer_block_three_link_two_title'
+                    type='text'
                     placeholder={t('MyOrders')}
                   />
                   <Error errorName={errors.footer_block_three_link_two_title} />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_two"
-                    type="text"
+                    label='Title'
+                    name='footer_block_three_link_two'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_three_link_two} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 3
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_three_title"
-                    type="text"
-                    placeholder="Recent Orders"
+                    label='Title'
+                    name='footer_block_three_link_three_title'
+                    type='text'
+                    placeholder='Recent Orders'
                   />
                   <Error
                     errorName={errors.footer_block_three_link_three_title}
                   />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_three"
-                    type="text"
+                    label='Title'
+                    name='footer_block_three_link_three'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_three_link_three} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-1'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('Link')} 4
                 </label>
 
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_four_title"
-                    type="text"
-                    placeholder="Updated Profile"
+                    label='Title'
+                    name='footer_block_three_link_four_title'
+                    type='text'
+                    placeholder='Updated Profile'
                   />
                   <Error
                     errorName={errors.footer_block_three_link_four_title}
                   />
                 </div>
-                <label className="md:col-span-1 sm:col-span-2"></label>
-                <div className="sm:col-span-4  mb-5">
+                <label className='md:col-span-1 sm:col-span-2'></label>
+                <div className='sm:col-span-4  mb-5'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_three_link_four"
-                    type="text"
+                    label='Title'
+                    name='footer_block_three_link_four'
+                    type='text'
                     placeholder={t('Link')}
                   />
                   <Error errorName={errors.footer_block_three_link_four} />
@@ -2139,19 +2126,19 @@ const HomePage = ({
               </div>
             </div>
 
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative md:mt-0 mt-24">
+            <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative md:mt-0 mt-24'>
               <strong>{t('Block')} 4</strong>
             </div>
 
-            <hr className="md:mb-12 mb-3" />
+            <hr className='md:mb-12 mb-3' />
 
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFooterBlock4}
                   processOption={footerBlock4}
                   name={footerBlock4}
@@ -2164,78 +2151,77 @@ const HomePage = ({
                 height: footerBlock4 ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !footerBlock4 ? 'hidden' : 'visible',
-                opacity: !footerBlock4 ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !footerBlock4 ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('FooterLogo')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <Uploader imageUrl={footerLogo} setImageUrl={setFooterLogo} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('FooterAddress')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_four_address"
-                    type="text"
-                    placeholder="Address"
+                    label='Title'
+                    name='footer_block_four_address'
+                    type='text'
+                    placeholder='Address'
                   />
                   <Error errorName={errors.footer_block_four_address} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('FooterPhone')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_four_phone"
-                    type="text"
+                    label='Title'
+                    name='footer_block_four_phone'
+                    type='text'
                     placeholder={t('Phone')}
                   />
                   <Error errorName={errors.footer_block_four_phone} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('FooterEmail')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="footer_block_four_email"
-                    type="text"
-                    placeholder="Email"
+                    label='Title'
+                    name='footer_block_four_email'
+                    type='text'
+                    placeholder='Email'
                   />
                   <Error errorName={errors.footer_block_four_email} />
                 </div>
               </div>
             </div>
 
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative mt-24 md:mt-0">
+            <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative mt-24 md:mt-0'>
               <strong>{t('SocialLinks')}</strong>
             </div>
-            <hr className="md:mb-12 mb-3" />
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <hr className='md:mb-12 mb-3' />
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFooterSocialLinks}
                   processOption={footerSocialLinks}
                   name={footerSocialLinks}
@@ -2248,101 +2234,100 @@ const HomePage = ({
                 height: footerSocialLinks ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !footerSocialLinks ? 'hidden' : 'visible',
-                opacity: !footerSocialLinks ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !footerSocialLinks ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   Facebook
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="social_facebook"
-                    type="text"
-                    placeholder="Facebook link"
+                    label='Title'
+                    name='social_facebook'
+                    type='text'
+                    placeholder='Facebook link'
                   />
                   <Error errorName={errors.social_facebook} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   Twitter
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="social_twitter"
-                    type="text"
-                    placeholder="Twitter Link"
+                    label='Title'
+                    name='social_twitter'
+                    type='text'
+                    placeholder='Twitter Link'
                   />
                   <Error errorName={errors.social_twitter} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   Pinterest
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="social_pinterest"
-                    type="text"
-                    placeholder="Pinterest Link"
+                    label='Title'
+                    name='social_pinterest'
+                    type='text'
+                    placeholder='Pinterest Link'
                   />
                   <Error errorName={errors.social_pinterest} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   Linkedin
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="social_linkedin"
-                    type="text"
-                    placeholder="Linkedin Link"
+                    label='Title'
+                    name='social_linkedin'
+                    type='text'
+                    placeholder='Linkedin Link'
                   />
                   <Error errorName={errors.social_linkedin} />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   WhatsApp
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <InputAreaTwo
                     register={register}
-                    label="Title"
-                    name="social_whatsapp"
-                    type="text"
-                    placeholder="whatsApp Link"
+                    label='Title'
+                    name='social_whatsapp'
+                    type='text'
+                    placeholder='whatsApp Link'
                   />
                   <Error errorName={errors.social_whatsapp} />
                 </div>
               </div>
             </div>
 
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative mt-24 md:mt-0">
+            <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative mt-24 md:mt-0'>
               <strong>{t('PaymentMethod')}</strong>
             </div>
-            <hr className="md:mb-12 mb-3" />
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <hr className='md:mb-12 mb-3' />
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFooterPaymentMethod}
                   processOption={footerPaymentMethod}
                   name={footerPaymentMethod}
@@ -2355,14 +2340,13 @@ const HomePage = ({
                 height: footerPaymentMethod ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !footerPaymentMethod ? 'hidden' : 'visible',
-                opacity: !footerPaymentMethod ? '0' : '1',
-              }}
-            >
-              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                opacity: !footerPaymentMethod ? '0' : '1'
+              }}>
+              <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+                <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                   {t('PaymentMethod')}
                 </label>
-                <div className="sm:col-span-4">
+                <div className='sm:col-span-4'>
                   <Uploader
                     imageUrl={paymentImage}
                     setImageUrl={setPaymentImage}
@@ -2384,19 +2368,19 @@ const HomePage = ({
                   </div>
                 </div> */}
 
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative mt-16 md:mt-0">
+            <div className='inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative mt-16 md:mt-0'>
               <strong>{t('FooterBottomContact')}</strong>
             </div>
 
-            <hr className="md:mb-12 mb-3" />
+            <hr className='md:mb-12 mb-3' />
 
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+            <div className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('EnableThisBlock')}
               </label>
-              <div className="sm:col-span-4">
+              <div className='sm:col-span-4'>
                 <SwitchToggle
-                  title=""
+                  title=''
                   handleProcess={setFooterBottomContact}
                   processOption={footerBottomContact}
                   name={footerBottomContact}
@@ -2409,19 +2393,18 @@ const HomePage = ({
                 height: footerBottomContact ? 'auto' : 0,
                 transition: 'all 0.5s',
                 visibility: !footerBottomContact ? 'hidden' : 'visible',
-                opacity: !footerBottomContact ? '0' : '1',
+                opacity: !footerBottomContact ? '0' : '1'
               }}
-              className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3"
-            >
-              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+              className='grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3'>
+              <label className='block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1'>
                 {t('FooterBottomContact')}
               </label>
-              <div className="sm:col-span-4 mb-20 md:mb-0">
+              <div className='sm:col-span-4 mb-20 md:mb-0'>
                 <InputAreaTwo
                   register={register}
-                  label="Title"
-                  name="footer_Bottom_Contact"
-                  type="text"
+                  label='Title'
+                  name='footer_Bottom_Contact'
+                  type='text'
                   placeholder={t('FooterBottomContact')}
                 />
                 <Error errorName={errors.footer_Bottom_Contact} />

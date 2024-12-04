@@ -7,7 +7,7 @@ const addStaffEmailBody = (option) => {
 >
 
   <head>
-    <title>vaporvibe</title>
+    <title>vistamart</title>
     <!--[if !mso]><!-->
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <!--<![endif]-->
@@ -107,7 +107,7 @@ const addStaffEmailBody = (option) => {
                                           <img
                                             alt
                                             height='auto'
-                                            src='https://res.cloudinary.com/ahossain/image/upload/v1676296566/vaporvibe%20files/cc_v8jite.png'
+                                            src='https://res.cloudinary.com/ahossain/image/upload/v1676296566/vistamart%20files/cc_v8jite.png'
                                             style='border:0;display:block;outline:none;text-decoration:none;height:auto;width:80px;font-size:13px;padding-bottom:30px;'
                                             width='80'
                                             height='80'
@@ -207,7 +207,7 @@ const addStaffEmailBody = (option) => {
                             <!--start email_template -->
  <h2>Hello ${option.name}</h2>
     <p>A request has been received to add you as ${
-      option.role === "Admin" ? "an" : "a"
+      option.role === 'Admin' ? 'an' : 'a'
     } <strong>${
     option.role
   }</strong> in <span style="text-transform: capitalize;"><strong>${
@@ -227,7 +227,7 @@ const addStaffEmailBody = (option) => {
       
       <p style="margin-top: 35px;">If you did not initiate this request, please contact us immediately at support@dashter.com</p>
 
-     <p style="margin:0px auto; margin-top:40px; text-align:center;">Thank you   <h4 style="margin:1px; margin-bottom:0px; text-align:center;">vaporvibe Team</p></p>
+     <p style="margin:0px auto; margin-top:40px; text-align:center;">Thank you   <h4 style="margin:1px; margin-bottom:0px; text-align:center;">vistamart Team</p></p>
 
                             <!--end email_template -->
                           </div>
@@ -352,7 +352,7 @@ const addStaffEmailBody = (option) => {
                                                         You are receiving this
                                                         email because you
                                                         registered with
-                                                        vaporvibe and agreed
+                                                        vistamart and agreed
                                                         to receive emails from
                                                         us regarding new
                                                         features, events and
@@ -360,7 +360,7 @@ const addStaffEmailBody = (option) => {
                                                         <p
                                                           style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:11px;font-weight:400;line-height:16px;text-align:center;color:#303030;"
                                                         >
-                                                          &copy; vaporvibe,
+                                                          &copy; vistamart,
                                                           All Rights Reserved.</p></div>
                                                     </td>
                                                   </tr>
@@ -394,7 +394,7 @@ const addStaffEmailBody = (option) => {
 
 </html>
 
-`;
-};
+`
+}
 
-module.exports = { addStaffEmailBody };
+module.exports = { addStaffEmailBody }
