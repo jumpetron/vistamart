@@ -1,2 +1,1 @@
-
-This is updated version of vaporvibe-admin
+This is updated version of vistamart-admin

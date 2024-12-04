@@ -11,14 +11,14 @@ const registerAdmin = async (req, res) => {
     const isAdded = await Admin.findOne({ email: req.body.email })
     if (isAdded) {
       return res.status(403).send({
-        message: 'This Email already Added!',
+        message: 'This Email already Added!'
       })
     } else {
       const newStaff = new Admin({
         name: req.body.name,
         email: req.body.email,
         role: req.body.role,
-        password: bcrypt.hashSync(req.body.password),
+        password: bcrypt.hashSync(req.body.password)
       })
       const staff = await newStaff.save()
       const token = signInToken(staff)
@@ -28,12 +28,12 @@ const registerAdmin = async (req, res) => {
         name: staff.name,
         email: staff.email,
         role: staff.role,
-        joiningData: Date.now(),
+        joiningData: Date.now()
       })
     }
   } catch (err) {
     res.status(500).send({
-      message: err.message,
+      message: err.message
     })
   }
 }
@@ -49,16 +49,16 @@ const loginAdmin = async (req, res) => {
         name: admin.name,
         phone: admin.phone,
         email: admin.email,
-        image: admin.image,
+        image: admin.image
       })
     } else {
       res.status(401).send({
-        message: 'Invalid Email or password!',
+        message: 'Invalid Email or password!'
       })
     }
   } catch (err) {
     res.status(500).send({
-      message: err.message,
+      message: err.message
     })
   }
 }
@@ -67,7 +67,7 @@ const forgetPassword = async (req, res) => {
   const isAdded = await Admin.findOne({ email: req.body.verifyEmail })
   if (!isAdded) {
     return res.status(404).send({
-      message: 'Admin/Staff Not found with this email!',
+      message: 'Admin/Staff Not found with this email!'
     })
   } else {
     const token = tokenForVerify(isAdded)
@@ -76,7 +76,7 @@ const forgetPassword = async (req, res) => {
       to: `${req.body.verifyEmail}`,
       subject: 'Password Reset',
       html: `<h2>Hello ${req.body.verifyEmail}</h2>
-      <p>A request has been received to change the password for your <strong>vaporvibe</strong> account </p>
+      <p>A request has been received to change the password for your <strong>vistamart</strong> account </p>
 
         <p>This link will expire in <strong> 15 minute</strong>.</p>
 
@@ -85,11 +85,11 @@ const forgetPassword = async (req, res) => {
         <a href=${process.env.ADMIN_URL}/reset-password/${token}  style="background:#22c55e;color:white;border:1px solid #22c55e; padding: 10px 15px; border-radius: 4px; text-decoration:none;">Reset Password </a>
 
         
-        <p style="margin-top: 35px;">If you did not initiate this request, please contact us immediately at support@vaporvibe.com</p>
+        <p style="margin-top: 35px;">If you did not initiate this request, please contact us immediately at support@vistamart.com</p>
 
         <p style="margin-bottom:0px;">Thank you</p>
-        <strong>vaporvibe Team</strong>
-             `,
+        <strong>vistamart Team</strong>
+             `
     }
     const message = 'Please check your email to reset password!'
     sendEmail(body, res, message)
@@ -105,13 +105,13 @@ const resetPassword = async (req, res) => {
     jwt.verify(token, process.env.JWT_SECRET_FOR_VERIFY, (err, decoded) => {
       if (err) {
         return res.status(500).send({
-          message: 'Token expired, please try again!',
+          message: 'Token expired, please try again!'
         })
       } else {
         staff.password = bcrypt.hashSync(req.body.newPassword)
         staff.save()
         res.send({
-          message: 'Your password change successful, you can login now!',
+          message: 'Your password change successful, you can login now!'
         })
       }
     })
@@ -124,7 +124,7 @@ const addStaff = async (req, res) => {
     const isAdded = await Admin.findOne({ email: req.body.email })
     if (isAdded) {
       return res.status(500).send({
-        message: 'This Email already Added!',
+        message: 'This Email already Added!'
       })
     } else {
       const newStaff = new Admin({
@@ -134,16 +134,16 @@ const addStaff = async (req, res) => {
         phone: req.body.phone,
         joiningDate: req.body.joiningDate,
         role: req.body.role,
-        image: req.body.image,
+        image: req.body.image
       })
       await newStaff.save()
       res.status(200).send({
-        message: 'Staff Added Successfully!',
+        message: 'Staff Added Successfully!'
       })
     }
   } catch (err) {
     res.status(500).send({
-      message: err.message,
+      message: err.message
     })
     // console.log("error", err);
   }
@@ -156,7 +156,7 @@ const getAllStaff = async (req, res) => {
     res.send(admins)
   } catch (err) {
     res.status(500).send({
-      message: err.message,
+      message: err.message
     })
   }
 }
@@ -167,7 +167,7 @@ const getStaffById = async (req, res) => {
     res.send(admin)
   } catch (err) {
     res.status(500).send({
-      message: err.message,
+      message: err.message
     })
   }
 }
@@ -197,16 +197,16 @@ const updateStaff = async (req, res) => {
         name: updatedAdmin.name,
         email: updatedAdmin.email,
         role: updatedAdmin.role,
-        image: updatedAdmin.image,
+        image: updatedAdmin.image
       })
     } else {
       res.status(404).send({
-        message: 'This Staff not found!',
+        message: 'This Staff not found!'
       })
     }
   } catch (err) {
     res.status(500).send({
-      message: err.message,
+      message: err.message
     })
   }
 }
@@ -215,11 +215,11 @@ const deleteStaff = (req, res) => {
   Admin.deleteOne({ _id: req.params.id }, (err) => {
     if (err) {
       res.status(500).send({
-        message: err.message,
+        message: err.message
       })
     } else {
       res.status(200).send({
-        message: 'Admin Deleted Successfully!',
+        message: 'Admin Deleted Successfully!'
       })
     }
   })
@@ -233,16 +233,16 @@ const updatedStatus = async (req, res) => {
       { _id: req.params.id },
       {
         $set: {
-          status: newStatus,
-        },
+          status: newStatus
+        }
       }
     )
     res.send({
-      message: `Staff ${newStatus} Successfully!`,
+      message: `Staff ${newStatus} Successfully!`
     })
   } catch (err) {
     res.status(500).send({
-      message: err.message,
+      message: err.message
     })
   }
 }
@@ -257,5 +257,5 @@ module.exports = {
   getStaffById,
   updateStaff,
   deleteStaff,
-  updatedStatus,
+  updatedStatus
 }

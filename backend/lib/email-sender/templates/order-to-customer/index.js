@@ -6,7 +6,7 @@ const customerInvoiceEmailBody = (option) => {
 >
 
   <head>
-    <title>vaporvibe</title>
+    <title>vistamart</title>
     <!--[if !mso]><!-->
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <!--<![endif]-->
@@ -104,7 +104,7 @@ const customerInvoiceEmailBody = (option) => {
                                           <img
                                             alt
                                             height='auto'
-                                            src='https://res.cloudinary.com/ahossain/image/upload/v1676296566/vaporvibe%20files/cc_v8jite.png'
+                                            src='https://res.cloudinary.com/ahossain/image/upload/v1676296566/vistamart%20files/cc_v8jite.png'
                                             style='border:0;display:block;outline:none;text-decoration:none;height:auto;width:80px;font-size:13px;padding-bottom:30px;'
                                             width='80'
                                             height='80'
@@ -181,20 +181,20 @@ const customerInvoiceEmailBody = (option) => {
                         >
 
                           <p style='margin:0px; font-size:14; text-transform: uppercase'>${
-                            option.company_name || ""
+                            option.company_name || ''
                           }</p>
                     
                           <p style='margin:0px;'>${
-                            option.company_address || ""
+                            option.company_address || ''
                           }</p>
                           <p style='margin:0px;'>
                      
-                          ${option.company_phone || ""}</p>
+                          ${option.company_phone || ''}</p>
                           <p style='margin:0px;'> ${
-                            option.company_email || ""
+                            option.company_email || ''
                           }</p>
                           <p style='margin:0px;'> ${
-                            option.company_website || ""
+                            option.company_website || ''
                           }</p>
                         </td>
 
@@ -270,10 +270,10 @@ const customerInvoiceEmailBody = (option) => {
                         <td
                           style='padding: 2px 4px;text-align:end;font-size:12px;'
                         >
-                          ${option.name || ""}
-                          <p style='margin:0px;'>${option.email || ""}</p>
-                          <p style='margin:0px;'> ${option.phone || ""}</p>
-                          ${option.address || ""}
+                          ${option.name || ''}
+                          <p style='margin:0px;'>${option.email || ''}</p>
+                          <p style='margin:0px;'> ${option.phone || ''}</p>
+                          ${option.address || ''}
                         </td>
 
                       </tr>
@@ -386,9 +386,9 @@ const customerInvoiceEmailBody = (option) => {
                                     ).toFixed(2)}
                                   </td>
 
-                                </tr>`;
+                                </tr>`
                                   })
-                                  .join("")}
+                                  .join('')}
 
                               </tbody>
                             </table>
@@ -551,7 +551,7 @@ const customerInvoiceEmailBody = (option) => {
                                                         You are receiving this
                                                         email because you
                                                         registered with
-                                                        vaporvibe and agreed
+                                                        vistamart and agreed
                                                         to receive emails from
                                                         us regarding new
                                                         features, events and
@@ -559,7 +559,7 @@ const customerInvoiceEmailBody = (option) => {
                                                         <p
                                                           style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:11px;font-weight:400;line-height:16px;text-align:center;color:#303030;"
                                                         >
-                                                          &copy; vaporvibe,
+                                                          &copy; vistamart,
                                                           All Rights Reserved.</p></div>
                                                     </td>
                                                   </tr>
@@ -591,7 +591,7 @@ const customerInvoiceEmailBody = (option) => {
     </div>
   </body>
 
-</html>`;
-};
+</html>`
+}
 
-module.exports = customerInvoiceEmailBody;
+module.exports = customerInvoiceEmailBody

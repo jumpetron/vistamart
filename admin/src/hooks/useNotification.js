@@ -1,16 +1,16 @@
-import { addSetting, removeSetting } from "@/reduxStore/slice/settingSlice";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { addSetting, removeSetting } from '@/reduxStore/slice/settingSlice'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 // import io from "socket.io-client";
 
 const useNotification = () => {
-  const dispatch = useDispatch();
-  const [socket, setSocket] = useState(null);
-  const [updated, setUpdated] = useState(false);
+  const dispatch = useDispatch()
+  const [socket, setSocket] = useState(null)
+  const [updated, setUpdated] = useState(false)
 
   // useEffect(() => {
   //   setSocket(io(import.meta.env.VITE_APP_API_SOCKET_URL));
-  //   // setSocket(io("https://vaporvibe-backend-theta.vercel.app"));
+  //   // setSocket(io("https://vistamart-backend-theta.vercel.app"));
   // }, []);
 
   // useEffect(() => {
@@ -40,8 +40,8 @@ const useNotification = () => {
   return {
     socket,
     updated,
-    setUpdated,
-  };
-};
+    setUpdated
+  }
+}
 
-export default useNotification;
+export default useNotification

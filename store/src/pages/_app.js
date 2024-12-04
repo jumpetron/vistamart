@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
   const {
     data: storeSetting,
     loading,
-    error,
+    error
   } = useAsync(SettingServices.getStoreSetting)
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }) {
 
       // Track page view on route change
       const handleRouteChange = (url) => {
-        handlePageView(`/${router.pathname}`, 'vaporvibe')
+        handlePageView(`/${router.pathname}`, 'vistamart')
       }
 
       // Set up event listeners

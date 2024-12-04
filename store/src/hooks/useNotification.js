@@ -1,15 +1,15 @@
-import { addSetting, removeSetting } from "@redux/slice/settingSlice";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { addSetting, removeSetting } from '@redux/slice/settingSlice'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 // import io from "socket.io-client";
 
 // Create a single socket instance
 // const socket = io(process.env.NEXT_PUBLIC_API_SOCKET_URL);
-// const socket = io("https://vaporvibe-backend-theta.vercel.app");
+// const socket = io("https://vistamart-backend-theta.vercel.app");
 
 const useNotification = () => {
-  const dispatch = useDispatch();
-  const [socket, setSocket] = useState(null);
+  const dispatch = useDispatch()
+  const [socket, setSocket] = useState(null)
 
   // console.log("socket", socket);
 
@@ -50,8 +50,8 @@ const useNotification = () => {
   // console.log("socket", socket);
 
   return {
-    socket, // You can still return the socket instance if needed
-  };
-};
+    socket // You can still return the socket instance if needed
+  }
+}
 
-export default useNotification;
+export default useNotification

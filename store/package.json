@@ -1,8 +1,8 @@
 {
-  "name": "vaporvibe-store",
+  "name": "vistamart-store",
   "version": "0.1.0",
-  "description": "this is vaporvibe-store built with next.js and tailwindcss",
-  "homepage": "https://vaporvibe-store.vercel.app/",
+  "description": "this is vistamart-store built with next.js and tailwindcss",
+  "homepage": "https://vistamart-store.vercel.app/",
   "private": true,
   "scripts": {
     "dev": "next dev",
